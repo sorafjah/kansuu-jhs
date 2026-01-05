@@ -1,0 +1,5 @@
+{
+  "name": "Graph Simulator",
+  "description": "An interactive mathematical function simulator for middle school students to explore linear, inverse, and quadratic functions.",
+  "requestFramePermissions": []
+}

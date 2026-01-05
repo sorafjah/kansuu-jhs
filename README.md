@@ -1,11 +1,71 @@
-<div align="center">
+# 関数グラフ・シミュレーター (Function Graph Simulator)
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+中学生の数学学習を支援するために開発された、インタラクティブなグラフ描画ツールです。
+比例、反比例、一次関数、二次関数の係数を変化させることで、グラフの形状がどのように変わるかを直感的に理解することができます。
 
-  <h1>Built with AI Studio</h2>
+![App Screenshot](https://picsum.photos/800/400) <!-- スクリーンショットが入る想定 -->
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## 🎯 教育的狙い
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+1.  **「係数」の意味の視覚化**:
+    *   $y = ax$ の $a$ が「傾き」であることを、直線の回転として体感する。
+    *   $y = ax^2$ の $a$ の符号による「上に凸・下に凸」の違いや、絶対値による「開き具合」の変化を観察する。
+2.  **数式とグラフのリアルタイムな対応**:
+    *   スライダー操作と同時にグラフが動くことで、数式の変化とグラフの変化の因果関係を理解しやすくする。
+3.  **正しい数学表記への慣れ**:
+    *   係数が小数の場合でも、数学の教科書と同様に「分数形式」で表示することにこだわりました（例：$0.5x$ ではなく $\frac{1}{2}x$）。
+    *   負の符号の位置や、係数1の省略など、自然な数式表示を実装しています。
 
-</div>
+## 🛠 機能
+
+*   **4つの関数モード**:
+    *   比例 ($y=ax$)
+    *   反比例 ($y=a/x$)
+    *   一次関数 ($y=ax+b$)
+    *   二次関数 ($y=ax^2$)
+*   **パラメータ操作**: スライダーによる係数($a$)および切片($b$)の変更。
+*   **数式自動整形**: 
+    *   小数を分数に自動変換。
+    *   符号の適切な配置。
+*   **グラフ描画**:
+    *   固定座標系 ($x: -10 \sim 10$, $y: -10 \sim 10$) での変化の観察。
+    *   反比例の漸近線付近の挙動の適切な処理。
+
+## 🚀 使い方 (開発者向け)
+
+このプロジェクトは React + TypeScript + Vite (または同様の環境) で構築されることを想定しています。
+
+### インストールと実行
+
+```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
+npm start
+```
+
+### ビルド
+
+```bash
+npm run build
+```
+
+## 📂 ファイル構成
+
+*   `src/components/`
+    *   `EquationDisplay.tsx`: 数式の分数表示ロジックを含むコンポーネント。
+    *   `GraphCanvas.tsx`: Rechartsを使用したグラフ描画コンポーネント。
+    *   `ControlPanel.tsx`: スライダーUI。
+*   `src/utils/math.ts`: 小数→分数変換などの数学ユーティリティ。
+
+## 🎨 使用ライブラリ
+
+*   **React 18**: UI構築
+*   **Tailwind CSS**: スタイリング
+*   **Recharts**: グラフ描画
+*   **Lucide React**: アイコン（※必要に応じて追加）
+
+## 📄 ライセンス
+
+MIT License
